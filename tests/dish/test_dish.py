@@ -4,14 +4,14 @@ from src.models.ingredient import Ingredient, Restriction
 
 
 def test_dish():
-    dish = Dish("Lasanha", 19.90)
+    dish = Dish("Lasanha", 25.90)
     assert isinstance(dish, Dish)
     assert dish.name == "Lasanha"
-    assert dish.price == 19.90
+    assert dish.price == 25.90
 
-    assert repr(dish) == "Dish('Lasanha', R$19.90)"
+    assert repr(dish) == "Dish('Lasanha', R$25.90)"
 
-    same_dish = Dish("Lasanha", 19.90)
+    same_dish = Dish("Lasanha", 25.90)
     different_dish = Dish("Ravioli", 18.50)
     assert dish == same_dish
     assert dish != different_dish
@@ -21,14 +21,14 @@ def test_dish():
 
     ingredient1 = Ingredient("queijo parmesão")
     ingredient2 = Ingredient("presunto")
-    dish.add_ingredient_dependency(ingredient1, 100)
+    dish.add_ingredient_dependency(ingredient1, 150)
     dish.add_ingredient_dependency(ingredient2, 50)
-    assert dish.recipe.get(ingredient1) == 100
+    assert dish.recipe.get(ingredient1) == 150
     assert dish.recipe.get(ingredient2) == 50
 
     expected_restrictions = {
         Restriction.LACTOSE,
-        Restriction.ANIMAL_DERIVED, 
+        Restriction.ANIMAL_DERIVED,
         Restriction.ANIMAL_MEAT,
 
     }
