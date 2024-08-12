@@ -10,7 +10,7 @@ def test_ingredient():
     expected_restrictions = {Restriction.LACTOSE, Restriction.ANIMAL_DERIVED}
     assert ingredient.restrictions == expected_restrictions
 
-    assert repr(ingredient) == "Ingredient('creme de leite)"
+    assert repr(ingredient) == "Ingredient('creme de leite')"
 
     same_ingredient = Ingredient("creme de leite")
     different_ingredient = Ingredient("carne")
