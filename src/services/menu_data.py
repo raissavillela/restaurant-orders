@@ -1,28 +1,32 @@
 import csv
-from src.models.dish import Dish
-from src.models.ingredient import Ingredient
+from models.dish import Dish
+from models.ingredient import Ingredient
 
 
 class MenuData:
     def __init__(self, source_path: str) -> None:
-        self.dishes = set()
-        self._load_data(source_path)
+        self.source_path = source_path
+        self.dishes = self.read()
 
-    def _load_data(self, source_path: str) -> None:
-        with open(source_path, mode='r') as file:
+    def read(self):
+        dishes = set()
+
+        with open(self.source_path, newline='') as file:
             reader = csv.DictReader(file)
+            data_dishes = {}
+
             for row in reader:
-                dish_name = row['dish']
-                price = float(row['price'])
-                ingredient_name = row['ingredient']
-                recipe_amount = int(row['recipe_amount'])
+                dish = row["dish"]
+                price = float(row["price"])
+                ingredient = row["ingredient"]
+                recipe_amount = int(row["recipe_amount"])
 
-                ingredient = Ingredient(ingredient_name)
+                if dish not in data_dishes:
+                    data_dishes[dish] = Dish(dish, price)
 
-                dish = next((d for d in self.dishes if d.name == dish_name),
-                            None)
-                if dish is None:
-                    dish = Dish(dish_name, price)
-                    self.dishes.add(dish)
+                ingredient_name = Ingredient(ingredient)
+                data_dishes[dish].add_ingredient_dependency(ingredient_name,
+                                                            recipe_amount)
 
-                dish.add_ingredient_dependency(ingredient, recipe_amount)
+        dishes.update(data_dishes.values())
+        return dishes
