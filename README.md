@@ -1,6 +1,6 @@
 # Projeto Restaurant Orders
 
-A partir de uma estrutura inicial foi finalizada uma ferramenta de construção de cadápios para um restaurante.
+A partir de uma estrutura inicial foi finalizada uma ferramenta de construção de cardápios para um restaurante.
 Ao longo deste projeto fui responsável por:
 
   * Construir testes para classes já implementadas;
