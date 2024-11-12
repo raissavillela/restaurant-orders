@@ -68,20 +68,6 @@ Acesse a rota `/docs` para ver a [documentação](http://127.0.0.1:8000/docs) ge
 
 </details> 
 
-
-# Requisitos
-  * Implemente testes para a classe Ingredient.
-  
-  * Implemente testes para a classe Dish.
-  
-  * Implemente a classe MenuData que fará todo o mapeamento de pratos e ingredientes baseado nos arquivo csv disponibilizado.
-  
-  * Implemente o método get_main_menu dentro da classe MenuBuilder. 
-  
-  * Implemente os métodos check_recipe_availability e consume_recipe dentro da classe InventoryMapping.
-
-  * Implemente do método get_main_menu considerando também a disponibilidade em estoque dos ingredientes dos pratos.
-
 # O que já veio pronto da Trybe
    * A implementação de algumas das classes que foram usadas ao longo do seu desenvolvimento.
 
